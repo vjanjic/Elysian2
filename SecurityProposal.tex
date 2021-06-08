@@ -1,0 +1,178 @@
+     % !TeX encoding = UTF-8
+\documentclass[a4paper,11pt]{article}
+\usepackage{amssymb}
+\usepackage{amsmath}
+\usepackage{IEEEtrantools}
+\usepackage[normalem]{ulem}
+\newcommand{\project}[1]{\textbf{#1}\xspace}
+\newcommand{\SECURITY}{\project{Elysian 2}}
+\newcommand{\TheProject}{\SECURITY}
+
+%\ifdefined\final
+%\else
+%\newcommand{\final}{}
+%\fi
+
+\def \final {}
+
+\input{preamble}
+\input{participants}
+
+
+
+\begin{document}
+\pagenumbering{arabic} % for pageslts
+
+\begin{titlepage}
+
+\begin{center}
+{\Huge \textsc{\TheProject}}
+\end{center}
+
+\begin{tabular}{lp{5in}r} %something strange about the spacing...
+\textbf{Title of Proposal:}&\hspace*{-7cm}\textbf{Intelligent Security and Privacy for AI-Based Big Data Analytics } & \\[4ex] 
+\textbf{Date of preparation:} &\hspace*{-3cm} \textbf{\today} & \comment{}{$
+$Revision: 0.0$ $}\\[4ex]
+\textbf{List of participants} & & \\[-1ex]
+
+{{\textcolor{white}{https://www.overleaf.com/project/5e5e45121e493b000149fe20}}}
+\end{tabular}
+
+%% Participants Table
+\newcounter{p}
+\begin{center}
+\begin{tabular}{|l|p{5in}|l|l|}\hline
+\textbf{Participant no} & \textbf{Participant organisation name} & \textbf{Country}\\ \hline 
+1 (Coordinator) & {\sc \longparticipant{1}} \hfill (\shortparticipant{1}) & \country{1}  \\ \hline
+\forloop{p}{2}{\value{p} < \theparticipant}{%
+\thep & {\sc \longparticipant{\thep}} \hfill  (\shortparticipant{\thep}) & \country{\thep}  \\ \hline}%
+\theparticipant & {\sc \longparticipant{\theparticipant}} \hfill  (\shortparticipant{\theparticipant})& \country{\theparticipant}  \\ \hline
+\end{tabular}\end{center}
+%https://www.overleaf.com/project/5e5e45121e493b000149fe20
+
+\tableofcontents
+
+\end{titlepage}
+
+% \input{snags}
+\newpage
+
+
+%\pagenumbering{roman}
+
+% ---------------------------------------------------------------------------    
+%  Section 1: Excellence
+% ---------------------------------------------------------------------------
+
+%\pagebreak
+
+Contributions by partners:
+
+\subsection{IBM}
+\subsubsection{ML-based Synthetic Data Fabrication}
+ 
+We propose a Generative Adversarial Network (GAN) based method and an algorithm for structured synthetic data fabrication. Generative models are one of the most trending and promising approaches towards the goal of fabrication realistic data. i.e. synthetic data that is ideally indistinguishable from the real data. Such generative models show high potential in their ability to learn the natural features of a data set (unlike applying various predefined data analyses). Generating realistic data using such an approach has been already shown very good results in several domains and seems to be very promising in others. While generative ML models, and specifically GANs, are an active and trendy research topic in academia, with several tools available out there on the market, most of the works are devoted to unstructured data i.e. a synthetic image, video, text, and sound. Our proposal focuses on the fabrication of realistic high-quality structural data which is especially challenging in presence of human-defined constraints. The ability to add human-defined constants to a "trained" GAN is another important differentiator of this research work..
+ 
+GAN-based data fabrication approach provides a significant improvement over the rule-based data fabrication tool of IBM. It enables to avoid a manual effort of rules definition / modeling. Rule definition is a laborious, time and resource-consuming process, involving data analysis as a prerequisite. Dealing with real-world data might be even more challenging in presence of data irregularities and anomalies, or in cases when intrinsic data dependencies and constraints are difficult to comprehend.
+
+\subsubsection{AI-based Breach and Attack Simulation Platform}
+
+Security controls are powerful tools for any organization, but they can be complex and difficult to manage. An enterprise anti-malware platform may have dozens of pages of settings and configuration options. Setting something incorrectly can have consequences ranging from leaving the company open to attack through preventing users from getting their jobs done.
+Automatic Breach and Attack Simulation (ABAS) is the answer to the question of how to make sure these weaknesses are found and addressed without breaking the network or the bank. At its core, ABAS is a platform designed to perform actions that closely mimic real threat actions to determine if they are caught by the organization security controls.
+ABAS uses a set of complex attack scenarios that attempt to bypass security control systems to reach a specific goal. If that goal can be reached (such as traffic making it through a firewall or an email being delivered to an end recipient), then the ABAS platform has helped to uncover a flaw in that control that needs to be remediated. An ABAS platform can simulate phishing attacks, malware attacks on endpoints, data exfiltration and sophisticated advanced persistent threats employing lateral movement.
+
+We intend to explore and develop a prototype of an automated extendable Breach and Attach Simulation technology. Our goal is to avoid as much as possible a manual effort of a new security attack definition. We plan to provide a platform that enables to define security attack scenarios in abstract way as templates and then to let the tool automatically create multiple instances of each scenario. Moreover, we plan to apply advanced ML-based techniques to automate the process of discovering new attacks and extracting properties of the target computer system.
+
+\subsection{Yagaan}
+\begin{itemize}
+
+\item Detection of vulnerabilities in the source code of software, based on SAST and Machine Learning for (a selection of) programming languages (to be defined) => quite similar to our contribution to the Elysian project
+
+\item Detection of vulnerabilities in the source code of software, based on Deep Learning => We start exploring this area on a SAP Labs / BPI France grant. But there is a prerequisite to keep in mind : deep Learning needs huge amount of appropriate data for training that YAG is not in a position to generate : it should be an input to the project
+
+\item Based on the source code of an application, extraction of potential counter measures which have not been implemented (remediation recommendations) and that could feed an attack simulation platform or a self healing process.
+
+- (low TRL...) qualification and validation of machine learning training cases driven by a community of code reviewers. The goal is to capture the training cases that different users of a community, with uncertain skills or trying to alter the vulnerability detection tool, produce when providing additional training to the YAG-Suite machine learning + automate the process of selecting relevant training cases against non relevant (or hostile) ones.
+
+\end{itemize}
+
+\subsection{St Andrews}
+
+\subsubsection{Refactoring Tool Support}
+Using refactoring to transform programs into more secure equivalents. USTAN have been developing the Paraformance tool (http://www.paraformance.com/) that refactors programs into versions that use parallelism. This could be extended to deal with security aspects. I have already done some work in this area using the idea of a semi-interleaved ladder, where we refactor C programs with a conditional branch over a secret variable, into one that is semi-interleaved, with equal branching profilings. We do this by having a system of sound rewrites underneath, which search for a rewriting s.t. it conforms to the security pattern.  The searching of the rewrites here could be performed using machine learning and AI techniques. In fact, for the semi-interleaved ladder, we use a trivial Taboo search, but this could be replaced with more intelligent search mechanisms, depending on the complexity of the search space.  This is just one example, and there are likely many such refactorings and patterns we could exploit here. I do wonder though if we need something in the project that deals with compiler/runtime systems, as security is often parameterized by its non-functional footprint. A compiler/runtime system will often try to optimize that footprint, resulting in less secure programs. Any transformation that we apply at the source level may not apply at the execution level due to the optimisations. Perhaps this is something we need to think about?
+
+\subsubsection{Contract Specification Language}
+In Teamplay (https://www.teamplay-h2020.eu/), USTAN developed the Contract Specification Language (CSL), a DSL for providing the developer with a way to capture non-functional requirements of their software (such as timing, power and security) and also to express verifiable assertions in the code, as provable contracts. These contracts are proved using an underlying system of dependent types (using a language called Idris), which give proofs that the assertions in the software hold. So far, we have mostly focused on timing and energy, but this could be extended to deal with security aspects. One such example could be a side-channel attack, where a vulnerable key is exposed in a conditional. Timing/power profiling of the execution of the code can lead to an attacker establishing the values of the vulnerable keys, depending on which branch is executed. A way around this attack would be to ensure both branches exhibit the same timing/power profiles for all executions, stopping the branch information from being leaked to a hacker. This could be expressed using CSL and/or proved using our system.
+
+\subsubsection{Formal Verification}
+
+\subsection{SCCH}
+\begin{itemize}
+\item monitoring and adaptation (self-healing) for security as per the previous application. In addition, we have developed formal foundations to model and verify sophisticated adaptation mechanisms based on reflection (the ability of a program to modify its own code at run-time). In addition, for the second planned proposal on the topic of scalable privacy preserving for cross border security, we think it would be interesting to follow a pro-active approach based on data and programs distribution and obfuscation.
+\item Design and Evaluation of Trustworthy AI Systems
+Trustworthy AI refers to the development, deployment, and use of AI by consumers, organizations, society in ways that not only ensure its compliance with all relevant laws and its robustness but especially its adherence to general ethical principles. The five principles of ethical AI (i.e. beneficence, non-maleficence, autonomy, justice, and explicability) need to be taken into account during development of machine learning and deep learning based AI systems. Despite the importance of ethical AI principles, their major limitation is concerning the fact that principles are highly general and provide little to no guidance for how they can be transferred into practice. The overall aim is to facilitate transfer of trustworthy AI principles into practice via fulfilling following aims: 
+1) evaluating the privacy-leakage by an AI system; 
+2) evaluating the explainability of an AI system; 
+3) evaluating the transferability of an AI system from one domain/application to another domain/application; 
+4) quantifying the uncertainties associated to AI models; 
+5) optimizing the inherent tradeoffs between ethical AI principles such as optimization of the privacy-explainability-transferability tradeoff.
+\end{itemize}
+
+
+
+
+\section{Excellence}
+
+%\begin{figure}[tp]
+%  \begin{center}
+%  \vspace{-5mm}
+%  \includeimage[scale=0.75]{DigitalFortress-Vision-v3.png}
+%%  \vspace{-3cm}
+%  \caption{The \TheProject{} Vision}
+%  \label{fig:vision}
+%  \end{center}
+%  \end{figure}
+
+
+
+
+
+\begin{mdframed}[backgroundcolor=blue!5]
+\emph{\TheProject's main goal is to XX}
+\end{mdframed}
+
+
+
+
+
+\subsection{Aims and Objectives}
+\label{sect:objectives}
+
+
+The specific \emph{aims} of the \TheProject{} project are:
+
+\begin{description}
+\item[Aim 1:] XX
+
+
+\end{description}
+
+The corresponding concrete \emph{objectives} are: 
+
+%\subsubsection{Detailed Description of the Objectives}
+
+\subsubsection*{Objective 1: XX}
+% Secure Patterns for Distributed Data Processing
+\vspace{-6pt}
+XX
+
+\newpage
+
+\label{bibliography}
+\addcontentsline{toc}{section}{References}
+
+%\bibliographystyle{abbrv}
+%\bibliography{bibliography_ustan}
+%\bibliography{bibliography_scch}
+
+\end{document}
