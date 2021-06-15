@@ -83,6 +83,28 @@ ABAS uses a set of complex attack scenarios that attempt to bypass security cont
 
 We intend to explore and develop a prototype of an automated extendable Breach and Attach Simulation technology. Our goal is to avoid as much as possible a manual effort of a new security attack definition. We plan to provide a platform that enables to define security attack scenarios in abstract way as templates and then to let the tool automatically create multiple instances of each scenario. Moreover, we plan to apply advanced ML-based techniques to automate the process of discovering new attacks and extracting properties of the target computer system.
 
+
+
+\subsection{Sopra Steria}
+\subsubsection{Core support}
+\begin{itemize}
+    \item Sopra Steria supplies a Rapid Information Factory with auto-code generation via Header-Input-Process-Output templates.
+    \item Two "toy" case studies (Open Banking, Digital Twin for Transport).
+\end{itemize}
+
+\subsubsection{Support Yagaan}
+Test the RIF code generation using Yagaan for security code checking to enhance the code from "toy" case studies.
+
+\subsubsection{Support St Andrews}
+Test the Refactoring of code generated to enhance the code from "toy" case studies.
+
+\subsubsection{Research new capability}
+Investigate option to code in a specific coding language and translate to another language to enable portability without re-coding.
+
+\subsubsection{General support to Research Team}
+Supply Data Engineering and Data Science capability to design, code and process the data within the solutions.
+
+
 \subsection{Yagaan}
 \begin{itemize}
 
@@ -108,9 +130,9 @@ In Teamplay (https://www.teamplay-h2020.eu/), USTAN developed the Contract Speci
 
 \subsection{SCCH}
 \begin{itemize}
-\item \emph{Monitoring strategies for Security}: We propose to use runtime monitoring of security properties as system reconfiguration triggers. The plan is to use reconfiguration as an attack prevention or intrusion tolerance mechanism, which in both cases will be proven to preserve security invariants on the system. Certain classes of attacks as blended or low level are by nature challenging to model formally. Indeed, although being able to model intrusion consequences, we very often struggle to model accurately enough environments and attackers in order to capture attack execution and exhibit insecure states. This is where monitoring greatly helps. We can use it to improve the security of existing systems by adding monitoring layers to detect complex attack classes or intrusions (e.g. using IA monitoring) and feed the system back with events to execute accordingly. We can monitor different kind of threats according to the selected case studies. For instance, we could monitor denial of service or detect and prevent unauthorized participants.
+\item \emph{Monitoring strategies for Security}: We propose to use runtime monitoring of security properties as system reconfiguration triggers. The plan is to use reconfiguration as an attack prevention or intrusion tolerance mechanism, which in both cases will be proven to preserve security invariants on the system. Certain classes of attacks as blended or low level are by nature challenging to model formally. Indeed, although being able to model intrusion consequences, we very often struggle to model accurately enough environments and attackers in order to capture attack execution and exhibit insecure states. This is where monitoring greatly helps. We can use it to improve the security of existing systems by adding monitoring layers to detect complex attack classes or intrusions (e.g. using AI monitoring) and feed the system back with events to execute accordingly. We can monitor different kind of threats according to the selected case studies. For instance, we could monitor denial of service or detect and prevent unauthorized participants.
 
-\item \emph{Static and run-time adaptation}: Using our ground formal model for reflective systems we could define two specific adaptation operators and its associated well definedness proof obligation guaranteeing their applicability. The first operator considers a static adaptation, which corresponds to the case where a system is restarted after an adaptation situation is identified. The operator must return the adapting system to a safe initial state. The second operator considers the case of runtime adaptation, in which control is transferred to the adapting system, in a state related to the state of the adapted system using an adaptation relation. This case could lead to different control transfer strategies being investigated in the project (transfer state equivalence, degrade, or upgrade modes). In both cases, the adapting system is selected using selection operations. Note that systems can be seen as a labelled transition system and each adaptation action can be seen as an operation establishing an adaptation relationship between the source  system  (adapted  system) and  the  target  system  (adapting  system).  This  relationship  must  fulfil  the  proof obligation resulting from the adaptation operation. At this level, a collection of systems and their adaptation relationships are obtained. The objective is to build a library of labelled transitions systems linked by a correct adaptation relation, where correctness is established by discharging the proof obligations of depending on the type of adaptation.  The relation linking such systems is associated to meta-data (e.g.  adaptation mode, self-adaptation,  QoS properties, etc.)  to offer more exploitation capabilities of the defined library.
+\item \emph{Static and run-time adaptation}: Using our ground formal model for reflective systems we could define two specific adaptation operators and its associated well definedness proof obligation guaranteeing their applicability. The first operator considers a static adaptation, which corresponds to the case where a system is restarted after an adaptation situation is identified. The operator must return the adapting system to a safe initial state. The second operator considers the case of runtime adaptation, in which control is transferred to the adapting system, in a state related to the state of the adapted system using an adaptation relation. This case could lead to different control transfer strategies being investigated in the project (transfer state equivalence, degrade, or upgrade modes). In both cases, the adapting system is selected using selection operations. Note that systems can be seen as a labelled transition system and each adaptation action can be seen as an operation establishing an adaptation relationship between the source  system  (adapted  system) and  the  target  system  (adapting  system).  This  relationship  must  fulfil  the  proof obligation resulting from the adaptation operation. At this level, a collection of systems and their adaptation relationships are obtained. The objective is to build a library of labelled transitions systems linked by a correct adaptation relation, where correctness is established by discharging the proof obligations  depending on the type of adaptation.  The relation linking such systems is associated to meta-data (e.g.  adaptation mode, self-adaptation,  QoS properties, etc.)  to offer more exploitation capabilities of the defined library.
 
 \item \emph{Self Adaptation/Self* systems/autonomous}: Here the idea is to rely on reflexive modelling to address the case of self-adaptation (healing), which is a critical operation for ensuring autonomous system behavior. It formalises an operator allowing a running system to change its  current running state after (a) identifying adaptation situation given by a monitoring action and (b) using a selection of self-adaptation substitutions.
 
